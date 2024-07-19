@@ -1,0 +1,23 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Dados de ocupação de leitos
+leitos_data = {
+    'Leitos Ocupados': [10, 15, 20, 5],
+    'Leitos Disponíveis': [5, 10, 15, 20]
+}
+leitos_df = pd.DataFrame(leitos_data, index=['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'])
+
+# Criação do gráfico
+fig, ax = plt.subplots(figsize=(10, 6))
+leitos_df.plot(kind='bar', stacked=True, ax=ax, color=['#1f77b4', '#ff7f0e'])
+
+# Configurações do gráfico
+ax.set_title('Ocupação de Leitos por Semana')
+ax.set_xlabel('Semana')
+ax.set_ylabel('Número de Leitos')
+ax.legend(title='Status')
+
+plt.tight_layout()
+plt.savefig('grafico_ocupacao_leitos.png')
+plt.show()
